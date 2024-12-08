@@ -11,14 +11,14 @@ const questions = [
   {
     type: "input",
     name: "link",
-    message: "Give the link?"
+    message: "Give the link? https://"
   }
 ];
 var text_link = "";
 
 const prompt = inquirer.createPromptModule();
 prompt(questions).then((answers) => {
-  var text_link = answers.link;
+  var text_link = "https://" + answers.link;
   fs.writeFile("URL.txt", text_link, (err) => {
     if (err) throw err;
     console.log("The QR-Code is generated for the given link");
